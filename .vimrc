@@ -26,6 +26,51 @@ nmap Q <Nop>
 " Disable bell
 set noerrorbells visualbell t_vb=
 
+" ######## Encoding ########
+" UTF-8 everywhere avoids random character rendering issues
+set encoding=utf-8
+set fileencoding=utf-8
+
+" ######## Indentation ########
+" VSCode auto-indents and uses spaces by default; mirror that.
+set expandtab         " tabs are expanded to spaces
+set tabstop=4         " a tab renders as 4 spaces
+set shiftwidth=4      " >> and << shift by 4
+set softtabstop=4     " backspace over 4 spaces as if it were a tab
+set autoindent        " copy indent from previous line on <CR>
+set smartindent       " add indent after { and similar tokens
+
+" ######## Search ########
+" VSCode highlights matches live; these two enable the same behavior.
+set hlsearch          " highlight all matches
+set incsearch         " jump to match as you type
+
+" ######## Buffer / file handling ########
+" `hidden` lets you switch buffers without saving — essential once you work
+" with multiple files. Without it, vim nags you on every :bnext.
+set hidden
+" Reload files that changed on disk (e.g. from git checkout), like VSCode does.
+set autoread
+" Skip swap/backup clutter
+set noswapfile
+set nobackup
+set nowritebackup
+
+" Share the system clipboard so yank/paste works with other apps.
+" Requires vim compiled with +clipboard (check `vim --version | grep clipboard`).
+set clipboard=unnamed
+
+" ######## Visual feedback ########
+set cursorline        " highlight the line the cursor is on
+set showmatch         " briefly flash matching bracket when you type one
+set scrolloff=8       " keep 8 lines of context above/below cursor
+set sidescrolloff=8   " same, but horizontally
+set signcolumn=yes    " always render sign column so text doesn't jump
+set colorcolumn=80   " soft visual ruler for line length
+set nowrap            " don't wrap long lines (toggle with `:set wrap`)
+set wildmenu          " menu-style tab completion on : commands
+set wildmode=longest:full,full
+
 " ######## Key Rebind Here ##########
 " Prevent bad habit in vim in normal mode...
 nnoremap <Left>  :echoe "Use h"<CR>
