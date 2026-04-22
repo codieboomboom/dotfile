@@ -1,24 +1,11 @@
-" Setting `nocompatible` mode by default
 set nocompatible
-
-" Turn syntax highlighting on
-syntax on
-
-" Show line numbers
-set number
-
-" Show relative line number
-set relativenumber
-
-" Show the status line always at bootom, even if only 1 window open
-set laststatus=2
+syntax on                   "syntax highlighting
+set number                  " Show line numbers
+set relativenumber          " Show relative line number
+set laststatus=2            " Show status line at bottom always
 
 " Intuitive backspace
 set backspace=indent,eol,start
-
-" Tweak for search, ignore case by default unless has capital in term
-set ignorecase
-set smartcase
 
 " Turn off ex mode from Normal mode
 nmap Q <Nop>
@@ -44,6 +31,8 @@ set smartindent       " add indent after { and similar tokens
 " VSCode highlights matches live; these two enable the same behavior.
 set hlsearch          " highlight all matches
 set incsearch         " jump to match as you type
+set ignorecase        " ignore case by default
+set smartcase
 
 " ######## Buffer / file handling ########
 " `hidden` lets you switch buffers without saving — essential once you work
