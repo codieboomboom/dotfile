@@ -46,6 +46,54 @@ set nobackup
 set nowritebackup
 
 " Share the system clipboard so yank/paste works with other apps.
+" Requires compiled with +clipboard (check `vim --version | grep clipboard`).
+set clipboard=unnamed
+
+" ######## Visual feedback ########
+set cursorline        " highlight the line the cursor is on
+set showmatch         " briefly flash matching bracket when you type one
+set scrolloff=8       " keep 8 lines of context above/below cursor
+set sidescrolloff=8   " same, but horizontally
+set signcolumn=yes    " always render sign column so text doesn't jump
+set colorcolumn=80   " soft visual ruler for line length
+set nowrap            " don't wrap long lines (toggle with `:set wrap`)
+set wildmenu          " menu-style tab completion on : commands
+set wildmode=longest:full,full
+
+" ######## Key Rebind Here ##########
+" Prevent bad habit in vim in normal mode...
+nnoremap <Left>  :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up>    :echoe "Use k"<CR>
+nnoremap <Down>  :echoe "Use j"<CR>
+" ...and in insert mode
+inoremap <Left>  <ESC>:echoe "Use h"<CR>
+inoremap <Right> <ESC>:echoe "Use l"<CR>
+inoremap <Up>    <ESC>:echoe "Use k"<CR>
+inoremap <Down>  <ESC>:echoe "Use j"<CR>
+
+" Remap leader key to space
+nnoremap <SPACE> <Nop>
+let mapleader=" "
+
+" ######## Quality-of-life remaps ########
+" Clear search highlight quickly (hlsearch is great until it isn't)
+nnoremap <leader><space> :nohlsearch<CR>
+" Keep cursor centered when jumping through search results
+nnoremap n nzzzv
+nnoremap N Nzzzv
+" ######## Buffer / file handling ########
+" `hidden` lets you switch buffers without saving — essential once you work
+" with multiple files. Without it, vim nags you on every :bnext.
+set hidden
+" Reload files that changed on disk (e.g. from git checkout), like VSCode does.
+set autoread
+" Skip swap/backup clutter
+set noswapfile
+set nobackup
+set nowritebackup
+
+" Share the system clipboard so yank/paste works with other apps.
 " Requires vim compiled with +clipboard (check `vim --version | grep clipboard`).
 set clipboard=unnamed
 
