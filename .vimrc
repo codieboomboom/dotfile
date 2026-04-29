@@ -1,3 +1,11 @@
+"Plugins stuffs"
+call plug#begin('~/.config/vim/plugged')
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+call plug#end()
+filetype plugin indent on "For vim-commentary plugin"
+
 set nocompatible
 syntax on                   "syntax highlighting
 set number                  " Show line numbers
@@ -82,6 +90,9 @@ nnoremap <leader><space> :nohlsearch<CR>
 " Keep cursor centered when jumping through search results
 nnoremap n nzzzv
 nnoremap N Nzzzv
+" Keep cursor centered when moving up/down by half page
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz 
 " ######## Buffer / file handling ########
 " `hidden` lets you switch buffers without saving — essential once you work
 " with multiple files. Without it, vim nags you on every :bnext.
