@@ -57,7 +57,7 @@ set nowritebackup
 
 " Share the system clipboard so yank/paste works with other apps.
 " Requires compiled with +clipboard (check `vim --version | grep clipboard`).
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 " ######## Visual feedback ########
 set cursorline        " highlight the line the cursor is on
