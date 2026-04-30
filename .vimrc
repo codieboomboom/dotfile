@@ -3,9 +3,11 @@ call plug#begin('~/.config/vim/plugged')
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'ayu-theme/ayu-vim' " Add ayu theme colorscheme
 call plug#end()
 filetype plugin indent on "For vim-commentary plugin"
 
+" Generic, important should have
 set nocompatible
 syntax on                   "syntax highlighting
 set number                  " Show line numbers
@@ -67,6 +69,11 @@ set colorcolumn=80   " soft visual ruler for line length
 set nowrap            " don't wrap long lines (toggle with `:set wrap`)
 set wildmenu          " menu-style tab completion on : commands
 set wildmode=longest:full,full
+
+" ######## Color Scheme #########
+set termguicolors     " enable true colors support
+let ayucolor="dark"   " matching dark|mirage|light to the version of theme
+colorscheme ayu
 
 " ######## Key Rebind Here ##########
 " Prevent bad habit in vim in normal mode...
