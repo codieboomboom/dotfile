@@ -1,4 +1,4 @@
-#Dotfile Shits for WSL
+# Dotfile Shits for WSL
 
 Ah shit, here we go again! Based mostly on https://github.com/Alex-D/dotfiles
 
