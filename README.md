@@ -46,6 +46,11 @@ ln -s ~/.dotfiles/.vimrc      ~/.config/vim/vimrc
 ln -s ~/.dotfiles/.tmux.conf  ~/.tmux.conf
 ```
 
+Following by more symlink (ftplugin) for Vim
+```bash
+ln -s ~/.dotfiles/.vim/ftplugin ~/.config/vim/ftplugin
+```
+
 ### 5. Verify
 
 ```bash
