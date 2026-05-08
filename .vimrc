@@ -4,6 +4,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'ayu-theme/ayu-vim' " Add ayu theme colorscheme
+Plug 'dense-analysis/ale' " ALE lint/lsp
 call plug#end()
 filetype plugin indent on "For vim-commentary plugin"
 
@@ -70,12 +71,36 @@ set nowrap            " don't wrap long lines (toggle with `:set wrap`)
 set wildmenu          " menu-style tab completion on : commands
 set wildmode=longest:full,full
 
-" ######## Color Scheme #########
+" ######## Color Scheme Plugins #########
 set termguicolors     " enable true colors support
 let ayucolor="dark"   " matching dark|mirage|light to the version of theme
 colorscheme ayu
 
-" ######## Key Rebind Here ##########
+" ########### ALE Lint / LSP client ################
+" --- Global ALE behavior ---
+let g:ale_completion_enabled = 1
+let g:ale_completion_autoimport = 1
+let g:ale_fix_on_save = 1
+set omnifunc=ale#completion#OmniFunc
+
+" Universal fixers across all filetypes
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\}
+
+" --- Diagnostics display ---
+let g:ale_sign_error = '✖'
+let g:ale_sign_warning = '⚠'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+" --- LSP keybindings (mean the same thing in every language) ---
+nmap <silent> gd <Plug>(ale_go_to_definition)
+nmap <silent> gr <Plug>(ale_find_references)
+nmap <silent> K  <Plug>(ale_hover)
+nmap <silent> [d <Plug>(ale_previous_wrap)
+nmap <silent> ]d <Plug>(ale_next_wrap)
+
+" #####################  Key Rebind Here ##########
 " Prevent bad habit in vim in normal mode...
 nnoremap <Left>  :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
