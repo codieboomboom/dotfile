@@ -112,9 +112,12 @@ inoremap <Right> <ESC>:echoe "Use l"<CR>
 inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
 
-" Remap leader key to space
+" Remap leader key to space in normal mode
 nnoremap <SPACE> <Nop>
 let mapleader=" "
+
+" Remap reload of vimrc
+nnoremap <leader>r :source $MYVIMRC<CR>
 
 " ######## Quality-of-life remaps ########
 " Clear search highlight quickly (hlsearch is great until it isn't)
